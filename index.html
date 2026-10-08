@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+  <meta name="theme-color" content="#0c1325"/>
+  <title>Cardboard AR Stencil — Quest 3</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<main class="page">
+  <div class="hero-label">QUEST 3 · PASSTHROUGH AR</div>
+  <h1>Cardboard <em>AR Stencil</em></h1>
+  <p class="lead">A real-size outline that floats over cardboard on your table. Align it with a controller, trace with a blunt marker, then remove your headset before cutting.</p>
+  <section class="preview" aria-label="Deflector outline preview">
+    <svg viewBox="-10 -10 100 75" role="img" aria-label="Eighty millimeter by fifty millimeter curved sound deflector outline">
+      <g fill="none" stroke="#80f7cb" stroke-width="1.4" stroke-linejoin="round">
+      <path d="M0 0 L63 0 Q73 0 76 19 Q82 42 79 50 Q76 54 71 44 Q54 15 36 13 Q18 11 0 10 Z" />
+      <path d="M11 1 L11 9" stroke-dasharray="2 2"/>
+      </g>
+      <path d="M0 0 L63 0 Q73 0 76 19 Q82 42 79 50 Q76 54 71 44 Q54 15 36 13 Q18 11 0 10 Z" fill="#80f7cb" fill-opacity=".08"/>
+      <g fill="#bdd8e2" font-size="4" font-family="system-ui">
+        <text x="22" y="-3">80 mm long</text><text x="48" y="53">50 mm tall</text>
+      </g>
+    </svg>
+  </section>
+  <div class="settings">
+    <label class="control">Starting table height: <strong id="heightLabel">73 cm</strong>
+      <input id="height" type="range" min="40" max="110" value="73" step="1"/>
+    </label>
+    <label class="control">Template orientation
+      <select id="side"><option value="left">Left piece</option><option value="right">Mirrored right piece</option></select>
+    </label>
+    <label class="control">Line color
+      <select id="color"><option value="mint">Bright mint</option><option value="yellow">Bright yellow</option><option value="magenta">Magenta</option></select>
+    </label>
+  </div>
+  <button id="enter" class="enter" disabled>Checking Quest AR support…</button>
+  <p id="status" class="status" role="status">Waiting for WebXR check.</p>
+  <div class="instructions">
+    <h2>Controls in passthrough</h2>
+    <ul>
+      <li><b>Controller trigger / hand pinch:</b> point at your cardboard and place or move stencil</li>
+      <li><b>Controller thumbstick left/right:</b> rotate the outline</li>
+      <li><b>Thumbstick up/down:</b> raise/lower stencil in 1 cm increments</li>
+      <li><b>Grip/squeeze:</b> touch the controller to the tabletop and sample its height</li>
+      <li><b>A / X button:</b> flip template for other side</li>
+    </ul>
+    <p>Keep the template away from real cutting tools. Small passthrough positioning errors are normal. Use a ruler to verify 80 mm before tracing.</p>
+  </div>
+</main>
+<div id="hud" class="ar-hud" aria-live="polite">
+  <strong>AR STENCIL</strong><span id="hudStatus">Trigger: place on table · Thumbstick: rotate / height · Grip: calibrate</span>
+  <button id="exit" type="button">Exit AR</button>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
